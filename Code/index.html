@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Download Test</title>
+  </head>
+  <body>
+    <label>Patient Name</label>
+    <input type="text" id="filename" value="Henry"/>
+
+    <br/><br/><br/>
+
+    <label for="text-val">第一次的服用時間</label>
+
+    <br/>
+
+    <SELECT id=text-val>
+      <OPTION Value="0">0</OPTION>
+      <OPTION Value="1">1</OPTION>
+      <OPTION Value="2">2</OPTION>
+      <OPTION Value="3">3</OPTION>
+      <OPTION Value="4">4</OPTION>
+      <OPTION Value="5">5</OPTION>
+      <OPTION Value="6">6</OPTION>
+      <OPTION Value="7">7</OPTION>
+      <OPTION Value="8">8</OPTION>
+      <OPTION Value="9">9</OPTION>
+      <OPTION Value="10">10</OPTION>
+      <OPTION Value="11">11</OPTION>
+      <OPTION Value="12">12</OPTION>
+      <OPTION Value="13">13</OPTION>
+      <OPTION Value="14">14</OPTION>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="16">16</OPTION>
+      <OPTION Value="17">17</OPTION>
+      <OPTION Value="18">18</OPTION>
+      <OPTION Value="19">19</OPTION>
+      <OPTION Value="20">20</OPTION>
+      <OPTION Value="21">21</OPTION>
+      <OPTION Value="22">22</OPTION>
+      <OPTION Value="23">23</OPTION>
+    </SELECT>
+
+    <SELECT id=text-val-two>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="30">30</OPTION>
+      <OPTION Value="45">45</OPTION>
+    </SELECT>
+
+    <br/><br/>
+
+    <label for="text-val-three">第二次服用時間</label>
+    <br/>
+    <SELECT id=text-val-three>
+      <OPTION Value="0">0</OPTION>
+      <OPTION Value="1">1</OPTION>
+      <OPTION Value="2">2</OPTION>
+      <OPTION Value="3">3</OPTION>
+      <OPTION Value="4">4</OPTION>
+      <OPTION Value="5">5</OPTION>
+      <OPTION Value="6">6</OPTION>
+      <OPTION Value="7">7</OPTION>
+      <OPTION Value="8">8</OPTION>
+      <OPTION Value="9">9</OPTION>
+      <OPTION Value="10">10</OPTION>
+      <OPTION Value="11">11</OPTION>
+      <OPTION Value="12">12</OPTION>
+      <OPTION Value="13">13</OPTION>
+      <OPTION Value="14">14</OPTION>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="16">16</OPTION>
+      <OPTION Value="17">17</OPTION>
+      <OPTION Value="18">18</OPTION>
+      <OPTION Value="19">19</OPTION>
+      <OPTION Value="20">20</OPTION>
+      <OPTION Value="21">21</OPTION>
+      <OPTION Value="22">22</OPTION>
+      <OPTION Value="23">23</OPTION>
+    </SELECT>
+
+    <SELECT id=text-val-four>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="30">30</OPTION>
+      <OPTION Value="45">45</OPTION>
+    </SELECT>
+
+    <br/><br/>
+
+    <label for="text-val-three">第三次服用時間</label>
+    <br/>
+    <SELECT id=text-val-five>
+      <OPTION Value="0">0</OPTION>
+      <OPTION Value="1">1</OPTION>
+      <OPTION Value="2">2</OPTION>
+      <OPTION Value="3">3</OPTION>
+      <OPTION Value="4">4</OPTION>
+      <OPTION Value="5">5</OPTION>
+      <OPTION Value="6">6</OPTION>
+      <OPTION Value="7">7</OPTION>
+      <OPTION Value="8">8</OPTION>
+      <OPTION Value="9">9</OPTION>
+      <OPTION Value="10">10</OPTION>
+      <OPTION Value="11">11</OPTION>
+      <OPTION Value="12">12</OPTION>
+      <OPTION Value="13">13</OPTION>
+      <OPTION Value="14">14</OPTION>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="16">16</OPTION>
+      <OPTION Value="17">17</OPTION>
+      <OPTION Value="18">18</OPTION>
+      <OPTION Value="19">19</OPTION>
+      <OPTION Value="20">20</OPTION>
+      <OPTION Value="21">21</OPTION>
+      <OPTION Value="22">22</OPTION>
+      <OPTION Value="23">23</OPTION>
+    </SELECT>
+
+    <SELECT id=text-val-six>
+      <OPTION Value="15">15</OPTION>
+      <OPTION Value="30">30</OPTION>
+      <OPTION Value="45">45</OPTION>
+    </SELECT>
+
+    <br/><br/>
+
+    <button type="button" id="download-btn">
+      Download dynamically generated file
+    </button>
+
+    <script>
+      function download(filename, text) {
+        var element = document.createElement('a');
+        element.style.display = 'none';
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+        element.setAttribute('download', filename);
+
+        document.body.appendChild(element);
+
+        element.click();
+
+        document.body.removeChild(element);
+      }
+
+      document.getElementById("download-btn").addEventListener("click", function() {
+
+        var str = '#include <Wire.h>\n' +
+                  '#include <LiquidCrystal_I2C.h>\n' +
+                  '#include <Stepper.h>\n\n' +
+                  '#define STEPS 200\n\n' +
+                  'Stepper stepper1(STEPS, 7, 5, 6, 4);\n' +
+                  'Stepper stepper2(STEPS, 12, 10, 11, 9);\n\n' +
+                  'LiquidCrystal_I2C lcd(0x3f,16,2);\n\n' +
+                  'int hour;\n' +
+                  'int minute;\n' +
+                  'int second;\n\n' +
+                  'long hour_setting = 3600000;\n' +
+                  'long minute_setting = 60000;\n' +
+                  'long second_setting = 1000;\n\n' +
+                  'unsigned long start_time;\n\n' +
+                  'int timeOne = ' + document.getElementById("text-val").value + ';\n' +
+                  'int timeTwo = ' + document.getElementById("text-val-two").value + ';\n' +
+                  'int timeThree = ' + document.getElementById("text-val-three").value + ';\n' +
+                  'int timeFour = ' + document.getElementById("text-val-four").value + ';\n' +
+                  'int timeFive = ' + document.getElementById("text-val-five").value + ';\n' +
+                  'int timeSix = ' + document.getElementById("text-val-six").value + ';\n\n' +
+                  'void setup() {\n' +
+                  '  stepper1.setSpeed(160);\n' +
+                  '  stepper2.setSpeed(160);\n\n' +
+                  '  lcd.init();\n' +
+                  '  lcd.backlight();\n' +
+                  '}\n\n' +
+                  'void loop() {\n' +
+                  '  start_time = millis();\n\n' +
+                  '  hour = start_time / hour_setting;\n' +
+                  '  minute = (start_time % hour_setting) / minute_setting;\n' +
+                  '  second = ((start_time % hour_setting) % minute_setting) / second_setting;\n\n' +
+                  '  String strhour = String(hour);\n' +
+                  '  String strmin = String(minute);\n' +
+                  '  String strsec = String(second);\n\n' +
+                  '  lcd.setCursor(4,0);\n\n' +
+                  '  if (hour < 10) {\n' +
+                  '    lcd.print("0");\n' +
+                  '    lcd.setCursor(5,0);\n' +
+                  '  }\n\n' +
+                  '  lcd.print(strhour + ":");\n' +
+                  '  lcd.setCursor(7,0);\n\n' +
+                  '  if (minute < 10) {\n' +
+                  '    lcd.print("0");\n' +
+                  '    lcd.setCursor(8,0);\n' +
+                  '  }\n\n' +
+                  '  lcd.print(strmin + ":");\n' +
+                  '  lcd.setCursor(10,0);\n\n' +
+                  '  if (second < 10) {\n' +
+                  '    lcd.print("0");\n' +
+                  '    lcd.setCursor(11,0);\n' +
+                  '  }\n\n' +
+                  '  lcd.print(strsec);\n\n' +
+                  '  if (hour == timeOne && minute == timeTwo) {\n' +
+                  '    simul(2048);\n' +
+                  '  } else if (hour == timeThree && minute == timeFour) {\n' +
+                  '    simul(2048);\n' +
+                  '  } else if (hour == timeFive && minute == timeSix) {\n' +
+                  '   simul(2048);\n' +
+                  '  }\n' +
+                  '}\n\n' +
+                  'void simul (int x) {\n' +
+                  '  bool positive = x > 0;\n\n' +
+                  '  if (positive){\n' +
+                  '    int i = 0;\n' +
+                  '    while (i < x){\n' +
+                  '      stepper1.step(1);\n' +
+                  '    stepper2.step(-1);\n' +
+                  '      i++;\n' +
+                  '    } \n' +
+                  '  }\n\n' +
+                  '  if (!positive){\n' +
+                  '    int i = x;\n' +
+                  '    while (i > 0){\n' +
+                  '      stepper1.step(-1);\n' +
+                  '      stepper2.step(1);\n' +
+                  '      i--;\n' +
+                  '    }\n' +
+                  '  }\n' +
+                  '}';
+        var text = str;
+        var filename = document.getElementById("filename").value + '.ino';
+
+        download(filename, text);
+      }, false);
+    </script>
+  </body>
+</html>
